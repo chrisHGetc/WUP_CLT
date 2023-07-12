@@ -149,3 +149,4 @@ print(paste('mean = ', mean(my1000$k4),' sd = ',sd(my1000$k4)))
 
 
 
+
