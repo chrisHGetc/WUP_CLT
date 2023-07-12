@@ -154,7 +154,7 @@ p + ggtitle("n = 16") +
 
 print(paste('mean = ', mean(my1000$k5),' sd = ',sd(my1000$k5)))
 ```
-
+The central limit theorem continues to hold true as the sample size increases. For numb =25, the standard deviation is `r sd(my1000$k5)`, which can be calculated using the provided data. This value demonstrates the decreasing trend of standard deviation as the sample size grows. The decrease in standard deviation signifies the increasing precision in estimating the population mean as the sample size becomes larger, aligning with the expectations set by the central limit theorem.
 
 
 
