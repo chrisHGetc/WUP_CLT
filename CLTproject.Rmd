@@ -149,13 +149,32 @@ p <- ggplot(my1000, aes(x=k5),col=sex) +
 # Add mean line
  geom_vline(aes(xintercept=mean(k5)),
             color="blue", linetype="dashed", size=1)
-p + ggtitle("n = 16") +
+p + ggtitle("n = 25") +
   xlab("temperature") + ylab(" density")
 
 print(paste('mean = ', mean(my1000$k5),' sd = ',sd(my1000$k5)))
 ```
 The central limit theorem continues to hold true as the sample size increases. For numb =25, the standard deviation is `r sd(my1000$k5)`, which can be calculated using the provided data. This value demonstrates the decreasing trend of standard deviation as the sample size grows. The decrease in standard deviation signifies the increasing precision in estimating the population mean as the sample size becomes larger, aligning with the expectations set by the central limit theorem.
 
+```{r}
+numb = 36
+Hdata = Homers_data[sample(1:1000,size=numb*1000, replace=T),"kkardashtemp"]
+mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+my1000$k6 = x.avg
+
+
+p <- ggplot(my1000, aes(x=k6),col=sex) + 
+  geom_density() +
+
+# Add mean line
+ geom_vline(aes(xintercept=mean(k6)),
+            color="blue", linetype="dashed", size=1)
+p + ggtitle("n = 36") +
+  xlab("temperature") + ylab(" density")
+
+print(paste('mean = ', mean(my1000$k6),' sd = ',sd(my1000$k6)))
+```
 
 
 
