@@ -111,6 +111,8 @@ print(paste('mean = ', mean(my1000$k3),' sd = ',sd(my1000$k3)))
 
 ```
 
+The dataset with numb = 9 consists of 9 samples, where each value is the square root of 3. Applying the central limit theorem, the standard deviation of the dataset decreases to 14.098 from the original value of 41.68. As the sample size increases, the standard deviation is expected to continue decreasing, in line with the central limit theorem. This reduction in standard deviation signifies a narrower spread of the sample means and a more precise estimation of the population mean. What we actually got `r sd (my1000$k3)`. 
+
 
 
 
