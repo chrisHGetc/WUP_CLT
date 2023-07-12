@@ -135,6 +135,27 @@ print(paste('mean = ', mean(my1000$k4),' sd = ',sd(my1000$k4)))
 Indeed, as expected, when using numb = 16, which corresponds to the square root of 4, the standard deviation is lower compared to the previous case. The reduction in standard deviation suggests that the distribution of the sample means is becoming more concentrated around the population mean. Specifically, since the original standard deviation was 41.68, observing a decrease to approximately one-fourth of that value indicates a substantial decrease in variability and an improvement in the precision of estimating the population mean. This trend aligns with the central limit theorem, which predicts a decrease in standard deviation as the sample size increases. We got `r sd(my1000$k4)`
 
 
+```{r}
+numb = 25
+Hdata = Homers_data[sample(1:1000,size=numb*1000, replace=T),"kkardashtemp"]
+mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+my1000$k5 = x.avg
+
+
+p <- ggplot(my1000, aes(x=k5),col=sex) + 
+  geom_density() +
+
+# Add mean line
+ geom_vline(aes(xintercept=mean(k5)),
+            color="blue", linetype="dashed", size=1)
+p + ggtitle("n = 16") +
+  xlab("temperature") + ylab(" density")
+
+print(paste('mean = ', mean(my1000$k5),' sd = ',sd(my1000$k5)))
+```
+
+
 
 
 
